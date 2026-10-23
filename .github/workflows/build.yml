@@ -1,0 +1,35 @@
+
+name: Build Fabric Mod
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 25
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+
+      - name: Make Gradle wrapper executable
+        run: chmod +x gradlew
+        working-directory: logic_mod
+
+      - name: Build mod
+        run: ./gradlew build
+        working-directory: logic_mod
+
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: logic-mod
+          path: logic_mod/build/libs/*.jar
