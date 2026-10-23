@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "logic",
+  "version": "${version}",
+  "name": "Logic",
+  "description": "A red-black katana with magical particle effects.",
+  "authors": [
+    "Logic Project"
+  ],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.logicmod.LogicMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.0",
+    "minecraft": "26.3",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}
